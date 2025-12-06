@@ -56,6 +56,7 @@ function saveTodayRecord(){
   const points = actions.reduce((s,i)=> s + TASKS[i].points,0);
   const note = noteEl.value.trim();
   store.history.unshift({date:today,actions,points,note,timestamp:new Date().toISOString()});
+  saveStore();
   try{ saveSound.currentTime=0; saveSound.play(); } catch(e){}
   updatePoints(); renderWalker(); alert("已儲存今天的紀錄！");
 }
@@ -73,3 +74,5 @@ function renderWalker(){
   const ratio = Math.min(store.weeklyTotal / WEEKLY_GOAL,1);
   walker.style.left = (8 + Math.round(ratio * trackWidth)) + "px";
 }
+
+document.getElementById("save-btn")?.addEventListener("click", saveToday);
