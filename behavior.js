@@ -51,7 +51,7 @@ saveBtn.addEventListener("click", saveTodayRecord);
 function saveTodayRecord(){
   const today = getToday();
   const already = store.history.some(h=>h.date===today);
-  if(already){ alert("今天已經儲存過紀錄囉！"); return; }
+/*  if(already){ alert("今天已經儲存過紀錄囉！"); return; } */
   const actions = Object.keys(store.tasksDone).filter(i=>store.tasksDone[i]===today).map(Number);
   const points = actions.reduce((s,i)=> s + TASKS[i].points,0);
   const note = noteEl.value.trim();
