@@ -222,7 +222,6 @@ function saveToday() {
   checkMedal(); 
 
   saveStore();
-  alert("今日紀錄已儲存！");
   
   // 如果在歷史頁面，重新渲染
   if (typeof renderHistoryPage === 'function') {
